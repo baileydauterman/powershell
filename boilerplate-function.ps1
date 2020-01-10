@@ -13,7 +13,6 @@ function boilerplate-powershellfunction {
     .NOTES 
         Created: Date Here
         Last Updated: Date Here
-
         Contributing Authors:
             AuthorNameHere
     .LINK
@@ -25,7 +24,8 @@ function boilerplate-powershellfunction {
     )
 
     begin {
-
+        $StartDate = Get-Date -Format u
+        $stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
     }
 
     process {
@@ -33,6 +33,8 @@ function boilerplate-powershellfunction {
     }
 
     end {
-
+        $stopwatch.stop()
+        $elapsed = $stopwatch.elapsed.totalseconds
+        Write-Host "This process took $elapsed"
     }
 }
